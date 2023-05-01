@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ncnc"
+version = "1.0.0"
+description = "An implementation of C-value and NC-value methods"
+authors = ["Jun Harashima"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0.1"
+tqdm = "^4.65.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+pysen = "^0.10.4"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+mypy = "^1.2.0"
+black = "^23.3.0"
+
+[tool.pysen]
+version = "0.10"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+mypy_preset = "strict"
+line_length = 88
+py_version = "py38"
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["ncnc/", "tests/"]
+
+[tool.pysen.lint.source]
+  includes = ["ncnc/", "tests/"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
